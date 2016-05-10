@@ -7,11 +7,11 @@ import com.phoneBook.entities.Contact;
 public interface ContactDAO {
 	public void save(Contact cont);
 	
-	public Contact getById(int id);
+	public Contact getById(Integer id);
 	
 	public List<Contact> getAll();
 	
-	public int remove(Contact cont);
+	public Integer remove(Contact cont);
 	
 	
 

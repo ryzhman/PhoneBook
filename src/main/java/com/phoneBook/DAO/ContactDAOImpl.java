@@ -49,7 +49,7 @@ public class ContactDAOImpl implements ContactDAO {
 	 * @return found contact or null
 	 */
 	@Override
-	public Contact getById(int id) {
+	public Contact getById(Integer id) {
 		Contact contact = em.find(Contact.class, id);
 		//		Contact contact = (Contact)sessionFactory.getCurrentSession().get(Contact.class, id);
 		return contact;
@@ -73,10 +73,11 @@ public class ContactDAOImpl implements ContactDAO {
 	 * @return int id of removed contact
 	 */
 	@Override
-	public int remove(Contact cont) {
+	public Integer remove(Contact cont) {
 		if(cont!=null){
 			em.remove(cont);
-		}
+		}else
+			return null;
 		return cont.getId();
 	}
 }

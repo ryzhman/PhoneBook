@@ -7,7 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+/**
+ * @author Олександр
+ * 
+ * Class represents domain Contact class, which includes all required fields for fulfilling Phonebook functionality.
+ * 
+ * Two constructors are available: default and with all (except Set<Contact>) information provided
+ *
+ */
 
 @Entity
 @Table(name="contacts")
@@ -40,9 +51,13 @@ public class Contact implements Serializable {
 	@Column(name="contact_email", length = 20)
 	private String email;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User ownerUser;
+	
 	public Contact(){}
 	
-	public Contact(String surname, String name, String patName, String mobTel, String homeTel, String address, String email){
+	public Contact(String surname, String name, String patName, String mobTel, String homeTel, String address, String email, User owner){
 		this.surname = surname;
 		this.name = name;
 		this.patName = patName;
@@ -50,6 +65,7 @@ public class Contact implements Serializable {
 		this.telNumberHome = homeTel;
 		this.address = address;
 		this.email = email;
+		this.ownerUser=owner;
 	}
 	
 	
@@ -121,6 +137,6 @@ public class Contact implements Serializable {
 	public String toString() {
 		return "Contact id - " + id + ", surname - " + surname + ", name - " + name + ", patName - " + patName
 				+ ", telNumberMob - " + telNumberMob + ", telNumberHome - " + telNumberHome + ", address - " + address
-				+ ", email - " + email;
+				+ ", email - " + email + ", ownerUser - " + ownerUser;
 	}
 }
