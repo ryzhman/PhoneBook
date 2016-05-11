@@ -51,6 +51,9 @@ public class Contact implements Serializable {
 	@Column(name="contact_email", length = 20)
 	private String email;
 	
+	@Column(name="contact_is_available", nullable = false)
+	private Boolean isAvailable = true;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User ownerUser;
@@ -133,10 +136,18 @@ public class Contact implements Serializable {
 		this.email = email;
 	}
 	
+	public Boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(Boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
 	@Override
 	public String toString() {
 		return "Contact id - " + id + ", surname - " + surname + ", name - " + name + ", patName - " + patName
 				+ ", telNumberMob - " + telNumberMob + ", telNumberHome - " + telNumberHome + ", address - " + address
-				+ ", email - " + email + ", ownerUser - " + ownerUser;
+				+ ", email - " + email + ", isAvailable - " + isAvailable + ", ownerUser - " + ownerUser;
 	}
 }

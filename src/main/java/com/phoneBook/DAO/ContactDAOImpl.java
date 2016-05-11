@@ -9,7 +9,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import com.phoneBook.entities.Contact;
 
 /**
@@ -32,11 +31,11 @@ public class ContactDAOImpl implements ContactDAO {
 	/*	
 	 * basic saving operation
 	 * if an object is already in EntityManager cache and have id - it is updated
-	 * @param Contact cont Contact to persist
+	 * @param Contact contact to persist
 	 */	
 	@Transactional
 	@Override
-	public void save(Contact cont) /*throws MySQLIntegrityConstraintViolationException*/ {
+	public void saveContact(Contact cont)  {
 		if(cont.getId()==0)
 			em.persist(cont);
 		else
@@ -49,7 +48,7 @@ public class ContactDAOImpl implements ContactDAO {
 	 * @return found contact or null
 	 */
 	@Override
-	public Contact getById(Integer id) {
+	public Contact getContactById(Integer id) {
 		Contact contact = em.find(Contact.class, id);
 		//		Contact contact = (Contact)sessionFactory.getCurrentSession().get(Contact.class, id);
 		return contact;
@@ -60,8 +59,8 @@ public class ContactDAOImpl implements ContactDAO {
 	 * @return list of found contacts
 	 */
 	@Override
-	public List<Contact> getAll() {
-		TypedQuery<Contact> query = em.createQuery("from Contacts", Contact.class);
+	public List<Contact> getAllContacts() {
+		TypedQuery<Contact> query = em.createQuery("from Contact", Contact.class);
 		List<Contact> list = null;
 		list = query.getResultList();
 		return list;
@@ -72,12 +71,9 @@ public class ContactDAOImpl implements ContactDAO {
 	 * @param Contact cont Contact to remove
 	 * @return int id of removed contact
 	 */
+	@Transactional
 	@Override
-	public Integer remove(Contact cont) {
-		if(cont!=null){
-			em.remove(cont);
-		}else
-			return null;
-		return cont.getId();
+	public void removeContact(Integer id) {
+		em.remove(em.find(Contact.class, id));
 	}
 }

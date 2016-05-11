@@ -8,11 +8,11 @@ public interface ContactService {
 	
 	public void add(Contact cont);
 	
-	public Contact findById(int id);
+	public Contact findById(Integer id);
 	
 	public List<Contact> findAll();
 	
-	public int delete(Contact cont);
+	public void delete(Integer id);
 	
 
 }

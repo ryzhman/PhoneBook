@@ -4,9 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import com.phoneBook.entities.Contact;
+import org.springframework.stereotype.Repository;
+
 import com.phoneBook.entities.User;
 
+@Repository
 public class UserDAOImpl implements UserDAO {
 	private User user;
 	/*	
@@ -19,7 +21,10 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void saveUser(User user) {
-		em.persist(user);
+		if(user.getId()==0)
+			em.persist(user);
+		else
+			em.merge(user);	
 	}
 
 	@Override
@@ -31,15 +36,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User login(String login, String pass) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean deactivateUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public User findUserByID(Integer id) {
+		User user = em.find(User.class, id);
+		return user;
 	}
 
 }

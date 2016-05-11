@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 /**
  * 
@@ -32,17 +34,17 @@ public class User implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="user_login", length=10)
+	@Column(name="user_login", length=10, nullable=false)
 	private String login;
 	
-	@Column(name="user_pass", length=15)
+	@Column(name="user_pass", length=15, nullable=false)
 	private String password;
 	
 	@Column(name="user_fullname", length=30)
 	private String fullname;
 	
-	@OneToMany(mappedBy="ownerUser", cascade=CascadeType.ALL)
-	private Set<Contact> contacts;
+//	@OneToMany(mappedBy="ownerUser", cascade=CascadeType.ALL)
+//	private Set<Contact> contacts;
 	
 	/*
 	 * Flag to mark whether a user active or deleted
@@ -56,6 +58,7 @@ public class User implements Serializable{
 		this.login = login;
 		this.password = password;
 		this.fullname=fullname;
+		this.isActive=true;
 	}
 
 	public int getId() {
@@ -86,10 +89,6 @@ public class User implements Serializable{
 		this.fullname = fullname;
 	}
 
-	public Set<Contact> getContacts() {
-		return contacts;
-	}
-
 	public Boolean getIsActive() {
 		return isActive;
 	}
@@ -98,14 +97,10 @@ public class User implements Serializable{
 		this.isActive = isActive;
 	}
 
-	public void setContacts(Set<Contact> contacts) {
-		this.contacts = contacts;
-	}
-
 	@Override
 	public String toString() {
 		return "User id - " + id + ", login - " + login + ", password - " + password + ", fullname - " + fullname
-				+ ", contacts - " + contacts + ", isActive - " + isActive;
+				 + ", isActive - " + isActive;
 	}
 	
 	

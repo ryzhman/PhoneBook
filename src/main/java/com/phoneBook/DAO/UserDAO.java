@@ -8,8 +8,6 @@ public interface UserDAO {
 	
 	public User findUserByLogin(String login);
 	
-	public User login(String login, String pass);
+	public User findUserByID(Integer id);
 	
-	public boolean deactivateUser(User user);
-
 }

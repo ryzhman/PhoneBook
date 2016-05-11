@@ -19,24 +19,23 @@ public class ContactServiceImpl implements ContactService {
 	
 	@Override
 	public void add(Contact cont) {
-		contactDAO.save(cont);
+		contactDAO.saveContact(cont);
 	}
 
 	@Override
-	public Contact findById(int id) {
-		Contact contact = contactDAO.getById(id);
+	public Contact findById(Integer id) {
+		Contact contact = contactDAO.getContactById(id);
 		return contact;
 	}
 
 	@Override
 	public List<Contact> findAll() {
-		List<Contact> list = contactDAO.getAll();
+		List<Contact> list = contactDAO.getAllContacts();
 		return list;
 	}
 
 	@Override
-	public int delete(Contact cont) {
-		int removedId = contactDAO.remove(cont);
-		return removedId;
+	public void delete(Integer id) {
+		contactDAO.removeContact(id);
 	}
 }

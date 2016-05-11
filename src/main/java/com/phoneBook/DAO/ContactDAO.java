@@ -5,14 +5,12 @@ import java.util.List;
 import com.phoneBook.entities.Contact;
 
 public interface ContactDAO {
-	public void save(Contact cont);
+	public void saveContact(Contact cont);
 	
-	public Contact getById(Integer id);
+	public Contact getContactById(Integer id);
 	
-	public List<Contact> getAll();
+	public List<Contact> getAllContacts();
 	
-	public Integer remove(Contact cont);
-	
-	
+	public void removeContact(Integer id);
 
 }
