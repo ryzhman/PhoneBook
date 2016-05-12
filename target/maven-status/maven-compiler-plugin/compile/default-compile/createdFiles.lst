@@ -1,7 +1,14 @@
+com\phoneBook\util\Main.class
+com\phoneBook\service\UserService.class
 com\phoneBook\DAO\ContactDAOImpl.class
+com\phoneBook\DAO\UserDAO.class
+com\phoneBook\service\ContactService.class
+com\phoneBook\service\ContactServiceImpl.class
 com\phoneBook\entities\Contact.class
 com\phoneBook\spring\AppConfig.class
 com\phoneBook\entities\User.class
+com\phoneBook\service\UserServiceImpl.class
 com\phoneBook\util\HibernateUtil.class
+com\phoneBook\DAO\UserDAOImpl.class
 com\phoneBook\DAO\ContactDAO.class
 com\phoneBook\spring\HibernateConfiguration.class

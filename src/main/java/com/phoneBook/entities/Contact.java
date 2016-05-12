@@ -150,4 +150,77 @@ public class Contact implements Serializable {
 				+ ", telNumberMob - " + telNumberMob + ", telNumberHome - " + telNumberHome + ", address - " + address
 				+ ", email - " + email + ", isAvailable - " + isAvailable + ", ownerUser - " + ownerUser;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((isAvailable == null) ? 0 : isAvailable.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((ownerUser == null) ? 0 : ownerUser.hashCode());
+		result = prime * result + ((patName == null) ? 0 : patName.hashCode());
+		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		result = prime * result + ((telNumberHome == null) ? 0 : telNumberHome.hashCode());
+		result = prime * result + ((telNumberMob == null) ? 0 : telNumberMob.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contact other = (Contact) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (isAvailable == null) {
+			if (other.isAvailable != null)
+				return false;
+		} else if (!isAvailable.equals(other.isAvailable))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (ownerUser == null) {
+			if (other.ownerUser != null)
+				return false;
+		} else if (!ownerUser.equals(other.ownerUser))
+			return false;
+		if (patName == null) {
+			if (other.patName != null)
+				return false;
+		} else if (!patName.equals(other.patName))
+			return false;
+		if (surname == null) {
+			if (other.surname != null)
+				return false;
+		} else if (!surname.equals(other.surname))
+			return false;
+		if (telNumberHome == null) {
+			if (other.telNumberHome != null)
+				return false;
+		} else if (!telNumberHome.equals(other.telNumberHome))
+			return false;
+		if (telNumberMob == null) {
+			if (other.telNumberMob != null)
+				return false;
+		} else if (!telNumberMob.equals(other.telNumberMob))
+			return false;
+		return true;
+	}
 }

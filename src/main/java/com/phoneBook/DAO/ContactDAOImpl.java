@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.phoneBook.entities.Contact;
+import com.phoneBook.entities.User;
 
 /**
  * Class realizes the basic DAO methods for Contact entity
@@ -28,12 +28,11 @@ public class ContactDAOImpl implements ContactDAO {
 	@PersistenceContext
 	private EntityManager em;   
 
-	/*	
+	/**
 	 * basic saving operation
 	 * if an object is already in EntityManager cache and have id - it is updated
 	 * @param Contact contact to persist
 	 */	
-	@Transactional
 	@Override
 	public void saveContact(Contact cont)  {
 		if(cont.getId()==0)
@@ -42,7 +41,7 @@ public class ContactDAOImpl implements ContactDAO {
 			em.merge(cont);
 	}
 
-	/*
+	/**
 	 * Finding persisted contact by id
 	 * @param int id id of contact
 	 * @return found contact or null
@@ -54,7 +53,7 @@ public class ContactDAOImpl implements ContactDAO {
 		return contact;
 	}
 
-	/*
+	/**
 	 * Finding all persisted contacts
 	 * @return list of found contacts
 	 */
@@ -65,13 +64,26 @@ public class ContactDAOImpl implements ContactDAO {
 		list = query.getResultList();
 		return list;
 	}
+	
+	/**
+	 * Finding all contacts of distinct user
+	 * @param User user 
+	 * @return List<Contact> list
+	 */
+	@Override
+	public List<Contact> getAllContactsByUser(User user){
+		List<Contact> list = null;
+		TypedQuery<Contact> query = em.createQuery("from Contact where ownerUser=:ownerUser", Contact.class);
+		query.setParameter("ownerUser", user);
+		list = query.getResultList();
+		return list;
+	}
 
-	/*
+	/**
 	 * Removing contact from DB
 	 * @param Contact cont Contact to remove
 	 * @return int id of removed contact
 	 */
-	@Transactional
 	@Override
 	public void removeContact(Integer id) {
 		em.remove(em.find(Contact.class, id));

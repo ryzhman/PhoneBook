@@ -1,7 +1,14 @@
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\service\UserService.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\service\UserServiceImpl.java
 D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\spring\AppConfig.java
-D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\util\HibernateUtil.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\service\ContactService.java
 D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\DAO\ContactDAO.java
-D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\entities\Contact.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\service\ContactServiceImpl.java
 D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\entities\User.java
 D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\spring\HibernateConfiguration.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\DAO\UserDAOImpl.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\util\HibernateUtil.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\util\Main.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\DAO\UserDAO.java
+D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\entities\Contact.java
 D:\Підготовка до Канади\Java\Workspace\PhoneBook\src\main\java\com\phoneBook\DAO\ContactDAOImpl.java

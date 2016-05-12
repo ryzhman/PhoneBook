@@ -15,20 +15,20 @@ import com.phoneBook.service.UserService;
 public class Main {
 
 	public static void main(String[] args) {
-	 	ApplicationContext context = new ClassPathXmlApplicationContext("application-config.xml");
-	 	
-	 	User user = new User("user1", "pass", "rea@sad.com");
-		ContactService contactService = (ContactService) context.getBean("contactServiceImpl"); 
-		UserService userService = (UserService) context.getBean("userServiceImpl");
-		Contact testContact = new Contact("Ryzhkov", "Alex", "Oleksandrovych", "380993270237", "380442322233", 
-				"Kopernika 10 apt. 23", "ryzhman@gmail.com", user);
-		Set<Contact> set = new HashSet<>();
-		set.add(testContact);
-		
+//	 	ApplicationContext context = new ClassPathXmlApplicationContext("application-config.xml");
+//	 	User user = new User("user1", "pass", "rea@sad.com");
+//		ContactService contactService = (ContactService) context.getBean("contactServiceImpl"); 
+//		UserService userService = (UserService) context.getBean("userServiceImpl");
+//		Contact testContact = new Contact("Ryzhkov", "Alex", "Oleksandrovych", "380993270237", "380442322233", 
+//				"Kopernika 10 apt. 23", "ryzhman@gmail.com", user);
+//		Set<Contact> set = new HashSet<>();
+//		set.add(testContact);
+//		
+//		
 //		userService.addNewUser(user);
-//		contactService.add(testContact);
+//		contactService.addContact(testContact);
 //		contactService.delete(69);
-//		System.out.println(contactService.findAll());
+//		System.out.println(contactService.findAllContactsByUser(user));
 	}
 
 }

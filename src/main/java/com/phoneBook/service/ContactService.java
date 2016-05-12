@@ -3,16 +3,19 @@ package com.phoneBook.service;
 import java.util.List;
 
 import com.phoneBook.entities.Contact;
+import com.phoneBook.entities.User;
 
 public interface ContactService {
 	
-	public void add(Contact cont);
+	public void addContact(Contact cont);
 	
-	public Contact findById(Integer id);
+	public Contact findContactById(Integer id);
 	
-	public List<Contact> findAll();
+	public List<Contact> findAllContacts();
 	
-	public void delete(Integer id);
+	public List<Contact> findAllContactsByUser(User user);
+	
+	public void deleteContact(Integer id);
 	
 
 }

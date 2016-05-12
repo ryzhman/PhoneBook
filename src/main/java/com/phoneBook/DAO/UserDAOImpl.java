@@ -1,5 +1,7 @@
 package com.phoneBook.DAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -39,6 +41,18 @@ public class UserDAOImpl implements UserDAO {
 	public User findUserByID(Integer id) {
 		User user = em.find(User.class, id);
 		return user;
+	}
+	
+	/**
+	 * Fetching all users from DB
+	 * @return List<User> list contains all users
+	 */
+	@Override
+	public List<User> findAllUsers(){
+		List<User> list = null;
+		TypedQuery<User> query = em.createQuery("from User", User.class);
+		list = query.getResultList();
+		return list;
 	}
 
 }

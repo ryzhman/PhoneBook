@@ -10,32 +10,40 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.phoneBook.DAO.ContactDAO;
 import com.phoneBook.entities.Contact;
+import com.phoneBook.entities.User;
 
 @Named
-@Transactional
 public class ContactServiceImpl implements ContactService {
 	@Inject
 	private ContactDAO contactDAO;
 	
+	@Transactional
 	@Override
-	public void add(Contact cont) {
+	public void addContact(Contact cont) {
 		contactDAO.saveContact(cont);
 	}
 
 	@Override
-	public Contact findById(Integer id) {
+	public Contact findContactById(Integer id) {
 		Contact contact = contactDAO.getContactById(id);
 		return contact;
 	}
 
 	@Override
-	public List<Contact> findAll() {
+	public List<Contact> findAllContacts() {
 		List<Contact> list = contactDAO.getAllContacts();
 		return list;
 	}
-
+	
 	@Override
-	public void delete(Integer id) {
+	public List<Contact> findAllContactsByUser(User user){
+		List<Contact> list = contactDAO.getAllContactsByUser(user);
+		return list;
+	}
+
+	@Transactional
+	@Override
+	public void deleteContact(Integer id) {
 		contactDAO.removeContact(id);
 	}
 }
